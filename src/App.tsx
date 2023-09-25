@@ -1,13 +1,15 @@
 import './App.css';
-import {AdminContext, Form, TextInput} from "react-admin";
+import {AdminContext, Form, ResourceContextProvider, TextInput} from "react-admin";
 
 function App() {
     return (
         <div className="App">
             <AdminContext>
-                <Form>
-                    <TextInput name={"name"} source={"source"} disabled={false} ></TextInput>
-                </Form>
+                <ResourceContextProvider value="posts">
+                    <Form>
+                        <TextInput name={"name"} source={"source"} disabled={false}></TextInput>
+                    </Form>
+                </ResourceContextProvider>
             </AdminContext>
         </div>
     );
